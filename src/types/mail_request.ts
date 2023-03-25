@@ -1,6 +1,8 @@
+type Email = `${string}@${string}.${string}`
+
 export interface MailRequest {
-  to: string[]
-  from: string
+  to: Email[]
+  from: Email
   subject: string
   html: string
 }
