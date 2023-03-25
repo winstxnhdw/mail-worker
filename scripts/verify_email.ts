@@ -25,10 +25,7 @@ async function main() {
     }
   })
 
-  client
-    .send(new VerifyEmailIdentityCommand({ EmailAddress: email }))
-    .then(console.log)
-    .catch(console.error)
+  client.send(new VerifyEmailIdentityCommand({ EmailAddress: email })).then(console.log)
 }
 
 main()
