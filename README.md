@@ -1,6 +1,6 @@
 # mail-worker
 
-`mail-worker` is a Cloudflare Worker that sends emails using AWS SES.
+`mail-worker` is a [Cloudflare Workers](https://workers.cloudflare.com/) that sends emails using [AWS SES](https://aws.amazon.com/ses/).
 
 ## Deploy
 
