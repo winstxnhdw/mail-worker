@@ -1,7 +1,9 @@
 import type { MailRequest } from '@/types/'
 
+const parse_mail_request = async (request: Request): Promise<MailRequest> => request.json()
+
 export const get_mail_request = async (request: Request): Promise<MailRequest | undefined> => {
-  const mail_request = await request.json()
+  const mail_request = await parse_mail_request(request)
 
   if (
     mail_request.to === undefined ||
