@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       email:
-        description: 'Enter a email address to verify'
+        description: 'Enter an email address to verify:'
         required: true
 
 jobs:
