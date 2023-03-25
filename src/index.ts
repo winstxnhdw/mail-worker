@@ -1,12 +1,5 @@
-import type {
-  Handler,
-  APIGatewayProxyResultV2,
-  APIGatewayProxyEventV2WithRequestContext,
-  APIGatewayEventRequestContextV2
-} from 'aws-lambda'
+import type { Env } from '@/types'
 
-export const handler: Handler = async (
-  event: APIGatewayProxyEventV2WithRequestContext<APIGatewayEventRequestContextV2>
-): Promise<APIGatewayProxyResultV2> => {
-  return { statusCode: 200, body: event.body }
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {}
 }

@@ -1,47 +1,26 @@
 # mail-worker
 
-A no-compromise boilerplate for projects willing to be on the cutting edge of ECMAScript and Node.
+`mail-worker` is a Cloudflare Worker that sends emails using AWS SES.
 
-## Commands
+## Deploy
 
-### Setup
-
-Upgrade all packages to latest.
+Deploy to Cloudflare Workers with the following.
 
 ```bash
-yarn upgrade --latest
+yarn deploy
 ```
 
-Run your application.
+## Development
+
+Populate your environment variables.
+
+```bash
+echo AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY_ID >> .env
+echo AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY >> .env
+```
+
+Start the server.
 
 ```bash
 yarn dev
-```
-
-### Build
-
-Minify and bundle the Node application with [esbuild](https://esbuild.github.io/).
-
-```bash
-yarn build
-```
-
-Human-readable bundle of your Node application. For debugging purposes.
-
-```bash
-yarn testbuild
-```
-
-### Test
-
-Run your tests with hot reloading.
-
-```bash
-yarn test
-```
-
-Run your tests without hot reloading. For testing in a CI pipeline.
-
-```bash
-yarn testci
 ```
