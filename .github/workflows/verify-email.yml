@@ -1,0 +1,35 @@
+name: Verify Email Identity
+
+on:
+  workflow_dispatch:
+    inputs:
+      email:
+        description: 'Enter a email address to verify'
+        required: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Masking inputs
+        run: echo "::add-mask::$(jq -r '.inputs.email' $GITHUB_EVENT_PATH)"
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Verify email
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: echo ${{ inputs.email }} | yarn verify-email
