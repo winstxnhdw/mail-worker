@@ -11,6 +11,8 @@ export default {
     }
 
     const mail = new SendEmailCommand({
+      Source: mail_request.from,
+      ReturnPath: mail_request.from,
       Destination: {
         ToAddresses: mail_request.to
       },
@@ -25,8 +27,7 @@ export default {
           Charset: 'UTF-8',
           Data: mail_request.subject
         }
-      },
-      Source: mail_request.from
+      }
     })
 
     const client = new SESClient({
