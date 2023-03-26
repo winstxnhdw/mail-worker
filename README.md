@@ -2,7 +2,7 @@
 
 [![main.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/main.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/main.yml)
 
-`mail-worker` is a [Cloudflare Worker](https://workers.cloudflare.com/) that sends emails using [AWS SES](https://aws.amazon.com/ses/).
+`mail-worker` is a [Cloudflare Worker](https://workers.cloudflare.com/) that send emails using [AWS SES](https://aws.amazon.com/ses/).
 
 ## Deploy
 
