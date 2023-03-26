@@ -3,20 +3,18 @@ import 'dotenv/config'
 import { cleanEnv, str } from 'envalid'
 import readline from 'readline/promises'
 
-const config = cleanEnv(process.env, {
-  AWS_REGION: str(),
-  AWS_ACCESS_KEY_ID: str(),
-  AWS_SECRET_ACCESS_KEY: str()
-})
-
 async function main() {
+  const config = cleanEnv(process.env, {
+    AWS_REGION: str(),
+    AWS_ACCESS_KEY_ID: str(),
+    AWS_SECRET_ACCESS_KEY: str()
+  })
+  
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   })
-
-  const email = await rl.question('[?] Email: ')
-
+  
   const client = new SESClient({
     region: config.AWS_REGION,
     credentials: {
@@ -25,6 +23,7 @@ async function main() {
     }
   })
 
+  const email = await rl.question('[?] Email: ')
   client.send(new VerifyEmailIdentityCommand({ EmailAddress: email })).then(console.log)
 }
 
