@@ -25,5 +25,5 @@ echo AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY >> .env
 Now, pipe your email as stdin to the `verify-email` script.
 
 ```bash
-echo YOUR_EMAIL | yarn verify-email
+echo <your-email-address> | yarn verify-email
 ```
