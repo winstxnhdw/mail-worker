@@ -1,7 +1,7 @@
 import { SESClient, VerifyEmailIdentityCommand } from '@aws-sdk/client-ses'
 import 'dotenv/config'
 import { cleanEnv, str } from 'envalid'
-import readline from 'readline/promises'
+import { createInterface } from 'readline/promises'
 
 async function main() {
   const config = cleanEnv(process.env, {
@@ -9,12 +9,7 @@ async function main() {
     AWS_ACCESS_KEY_ID: str(),
     AWS_SECRET_ACCESS_KEY: str()
   })
-  
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  })
-  
+
   const client = new SESClient({
     region: config.AWS_REGION,
     credentials: {
@@ -23,7 +18,11 @@ async function main() {
     }
   })
 
-  const email = await rl.question('[?] Email: ')
+  const email = await createInterface({
+    input: process.stdin,
+    output: process.stdout
+  }).question('[?] Email: ')
+
   client.send(new VerifyEmailIdentityCommand({ EmailAddress: email })).then(console.log)
 }
 
