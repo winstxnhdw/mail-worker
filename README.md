@@ -4,6 +4,14 @@
 
 `mail-worker` is a [Cloudflare Worker](https://workers.cloudflare.com/) that send emails using [AWS SES](https://aws.amazon.com/ses/).
 
+## Development
+
+Install all dependencies.
+
+```bash
+yarn
+```
+
 ## Usage
 
 `POST` **`/`** `(sends email to recipient(s))`
@@ -19,11 +27,11 @@
 
 ### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `text/plain`                      | `Email sent!`                                                       |
-> | `400`         | `text/plain`                      | `Invalid request!`                                                  |
-> | `500`         | `text/plain`                      | `Failed to send email!`                                             |
+> | http code     | content-type                   | response                                                              |
+> |---------------|--------------------------------|-----------------------------------------------------------------------|
+> | `200`         | `text/plain`                   | `Email sent!`                                                         |
+> | `400`         | `text/plain`                   | `Invalid request!`                                                    |
+> | `500`         | `text/plain`                   | `Failed to send email!`                                               |
 
 ### Example cURL
 
