@@ -17,13 +17,13 @@ yarn deploy
 To use any sender email, the email must first be verified. The verification will require the following environment variables. You may populate your environment with the following.
 
 ```bash
-echo AWS_REGION=YOUR_AWS_REGION >> .env
-echo AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY_ID >> .env
-echo AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY >> .env
+echo AWS_REGION=$AWS_REGION >> .env
+echo AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID >> .env
+echo AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY >> .env
 ```
 
 Now, pipe your email as stdin to the `verify-email` script.
 
 ```bash
-echo <your-email-address> | yarn verify-email
+echo $EMAIL_ADDRESS | yarn verify-email
 ```
