@@ -1,6 +1,12 @@
 import type { MailRequest } from '@/types/'
 
-const parse_mail_request = async (request: Request): Promise<MailRequest> => request.json()
+const parse_mail_request = async (request: Request): Promise<MailRequest | undefined> => {
+  try {
+    return request.json()
+  } catch {
+    return undefined
+  }
+}
 
 export const verify_mail_request = (mail_request: MailRequest): MailRequest | undefined =>
   mail_request.from === undefined ||
@@ -15,5 +21,5 @@ export const verify_mail_request = (mail_request: MailRequest): MailRequest | un
 
 export const get_mail_request = async (request: Request): Promise<MailRequest | undefined> => {
   const mail_request = await parse_mail_request(request)
-  return verify_mail_request(mail_request)
+  return mail_request !== undefined ? verify_mail_request(mail_request) : mail_request
 }
