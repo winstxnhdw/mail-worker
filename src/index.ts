@@ -38,9 +38,9 @@ export default {
       }
     })
 
-    const send_mail = await client.send(mail)
+    const send_mail = await client.send(mail).catch(() => undefined)
 
-    return send_mail.MessageId === undefined
+    return send_mail === undefined
       ? new Response('Failed to send email!', { status: 500 })
       : new Response('Email sent!', { status: 200 })
   }
