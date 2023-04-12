@@ -1,6 +1,7 @@
 import { SESClient, VerifyEmailIdentityCommand } from '@aws-sdk/client-ses'
 import 'dotenv/config'
 import { cleanEnv, str } from 'envalid'
+import { stdin, stdout } from 'process'
 import { createInterface } from 'readline/promises'
 
 async function main() {
@@ -18,10 +19,7 @@ async function main() {
     }
   })
 
-  const email = await createInterface({
-    input: process.stdin,
-    output: process.stdout
-  }).question('[?] Email: ')
+  const email = await createInterface(stdin, stdout).question('[?] Email: ')
 
   client.send(new VerifyEmailIdentityCommand({ EmailAddress: email })).then(console.log)
 }
