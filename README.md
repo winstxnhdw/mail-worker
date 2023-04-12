@@ -1,6 +1,7 @@
 # mail-worker
 
 [![main.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/main.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/main.yml)
+[![dependabot.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/dependabot.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/dependabot.yml)
 
 `mail-worker` is a [Cloudflare Worker](https://workers.cloudflare.com/) that send emails using [AWS SES](https://aws.amazon.com/ses/).
 
@@ -38,11 +39,11 @@ yarn
 > ```bash
 > curl $MAIL_WORKER_ENDPOINT -H 'Content-Type: application/json' -d \
 > '{
->   "to": ["test@test.com"],
->   "from": "test@test.com",
->   "subject": "test",
->   "html": "test"
-> }'
+>    "to": ["test@test.com"],
+>    "from": "test@test.com",
+>    "subject": "test",
+>    "html": "test"
+>  }'
 > ```
 
 ## Verify Email
