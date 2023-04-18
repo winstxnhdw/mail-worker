@@ -10,9 +10,9 @@ describe('get_mail_request', () => {
       from: 'test@email.com',
       subject: '',
       html: ''
-    }
+    } as unknown as MailRequest
 
-    const parsed_mail_request = await verify_mail_request(mail_request as any)
+    const parsed_mail_request = await verify_mail_request(mail_request)
     expect(parsed_mail_request).to.be.undefined
   })
 
