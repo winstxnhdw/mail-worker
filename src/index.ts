@@ -38,7 +38,7 @@ export default {
       }
     })
 
-    const send_mail = await client.send(mail).catch(() => undefined)
+    const send_mail = await client.send(mail).catch(console.error)
 
     return send_mail === undefined
       ? new Response('Failed to send email!', { status: 500 })
