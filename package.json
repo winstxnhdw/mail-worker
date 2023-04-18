@@ -8,7 +8,7 @@
     "testci": "mocha --require @swc-node/register --extensions ts 'tests/**/*.test.ts'"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.312.0"
+    "@aws-sdk/client-ses": "^3.315.0"
   },
   "devDependencies": {
     "@aws-sdk/types": "^3.306.0",
