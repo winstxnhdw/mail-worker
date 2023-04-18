@@ -1,15 +1,11 @@
+import { get_config } from '@/config'
 import { SESClient, VerifyEmailIdentityCommand } from '@aws-sdk/client-ses'
 import 'dotenv/config'
-import { cleanEnv, str } from 'envalid'
 import { stdin, stdout } from 'process'
 import { createInterface } from 'readline/promises'
 
 async function main() {
-  const config = cleanEnv(process.env, {
-    AWS_REGION: str(),
-    AWS_ACCESS_KEY_ID: str(),
-    AWS_SECRET_ACCESS_KEY: str()
-  })
+  const config = get_config(process.env)
 
   const client = new SESClient({
     region: config.AWS_REGION,

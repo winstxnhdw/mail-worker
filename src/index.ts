@@ -1,9 +1,11 @@
+import { get_config } from '@/config'
 import { get_mail_request } from '@/get_mail_request'
-import type { Env } from '@/types'
-import { SendEmailCommand, SESClient } from '@aws-sdk/client-ses'
+import type { Environment } from '@/types'
+import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses'
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, environment: Environment): Promise<Response> {
+    const config = get_config(environment)
     const mail_request = await get_mail_request(request)
 
     if (mail_request === undefined) {
@@ -13,28 +15,18 @@ export default {
     const mail = new SendEmailCommand({
       Source: mail_request.from,
       ReturnPath: mail_request.from,
-      Destination: {
-        ToAddresses: mail_request.to
-      },
+      Destination: { ToAddresses: mail_request.to },
       Message: {
-        Body: {
-          Html: {
-            Charset: 'UTF-8',
-            Data: mail_request.html
-          }
-        },
-        Subject: {
-          Charset: 'UTF-8',
-          Data: mail_request.subject
-        }
+        Subject: { Data: mail_request.subject },
+        Body: { Html: { Data: mail_request.html } }
       }
     })
 
     const client = new SESClient({
-      region: env.AWS_REGION,
+      region: config.AWS_REGION,
       credentials: {
-        accessKeyId: env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: env.AWS_SECRET_ACCESS_KEY
+        accessKeyId: config.AWS_ACCESS_KEY_ID,
+        secretAccessKey: config.AWS_SECRET_ACCESS_KEY
       }
     })
 

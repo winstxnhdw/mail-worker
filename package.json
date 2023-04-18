@@ -8,7 +8,8 @@
     "testci": "mocha --require @swc-node/register --extensions ts 'tests/**/*.test.ts'"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.315.0"
+    "@aws-sdk/client-ses": "^3.315.0",
+    "envalid": "^7.3.1"
   },
   "devDependencies": {
     "@aws-sdk/types": "^3.306.0",
@@ -22,7 +23,6 @@
     "@typescript-eslint/parser": "^5.59.0",
     "chai": "^4.3.7",
     "dotenv": "^16.0.3",
-    "envalid": "^7.3.1",
     "esbuild": "^0.17.17",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
