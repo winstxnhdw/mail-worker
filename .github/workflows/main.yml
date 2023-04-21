@@ -37,5 +37,5 @@ jobs:
         env:
           WORKER_ENDPOINT: ${{ secrets.WORKER_ENDPOINT }}
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CF_API_TOKEN }}
