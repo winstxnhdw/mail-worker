@@ -1,8 +1,8 @@
 import { cleanEnv, makeValidator, str } from 'envalid'
 
 const region = makeValidator((region) => {
-  if (typeof region !== 'string') throw new Error('Region must be a string')
-  if (!/^[a-z]{2}-[a-z]+-\d$/.test(region)) throw new Error('Region must be in the format of "xx-xxxx-x"')
+  if (typeof region !== 'string') throw new Error('Region must be a string.')
+  if (!/^[a-z]{2}-[a-z]+-\d$/.test(region)) throw new Error('Region must be in the format of "xx-xxxx-x".')
   return region
 })
 
