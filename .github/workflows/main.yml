@@ -5,10 +5,10 @@ on:
     branches: [main]
     paths:
       - 'src/**'
-      - '.github/workflows/main.yml'
-      - 'package.json'
-      - 'tsconfig.json'
-      - 'wrangler.toml'
+      - .github/workflows/main.yml
+      - package.json
+      - tsconfig.json
+      - wrangler.toml
 
 jobs:
   deploy:
