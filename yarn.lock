@@ -554,10 +554,17 @@
     "@aws-sdk/types" "3.337.0"
     tslib "^2.5.0"
 
-"@aws-sdk/types@3.337.0", "@aws-sdk/types@^3.222.0", "@aws-sdk/types@^3.337.0":
+"@aws-sdk/types@3.337.0":
   version "3.337.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-3.337.0.tgz#e45a2ebe3799002f552658fd81c52bd0255e5c72"
   integrity sha512-yR7e9iWMabUfNWkpQs05QXXBXGwp5cunkzVNeDvcAKgaxVVD2n8wY9Iocl324GvXMplJcnND9l0DvizkTak3yQ==
+  dependencies:
+    tslib "^2.5.0"
+
+"@aws-sdk/types@^3.222.0", "@aws-sdk/types@^3.338.0":
+  version "3.338.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-3.338.0.tgz#2b14c063f3be09d2465fe23fd2554ce2287fbeca"
+  integrity sha512-hrNK15o+EObLrl9oWOyxJN2dwjgbdBMGolLEVP/wR/+M9ojHgk/x1kMsCVcV82a8Vgdtqx1TyOC3UugUPT0+NA==
   dependencies:
     tslib "^2.5.0"
 
