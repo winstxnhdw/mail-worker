@@ -2,9 +2,16 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
+  "rules": {
+    "eqeqeq": "error"
+  },
   "extends": [
-    "eslint:recommended",
+    "plugin:@typescript-eslint/strict",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier"
-  ]
+  ],
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  }
 }

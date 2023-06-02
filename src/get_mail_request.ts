@@ -13,7 +13,6 @@ export const verify_mail_request = (mail_request: MailRequest): MailRequest | un
   mail_request.subject === undefined ||
   mail_request.html === undefined ||
   mail_request.to === undefined ||
-  mail_request.to.length === undefined ||
   mail_request.to.length === 0 ||
   !Array.isArray(mail_request.to)
     ? undefined

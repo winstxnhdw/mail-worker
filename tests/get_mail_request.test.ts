@@ -4,7 +4,7 @@ import { expect } from 'chai'
 import 'mocha'
 
 describe('get_mail_request', () => {
-  it('It should return `undefined` if `to` is not an array', async () => {
+  it('It should return `undefined` if `to` is not an array', () => {
     const mail_request = {
       to: 'test@email.com',
       from: 'test@email.com',
@@ -12,11 +12,11 @@ describe('get_mail_request', () => {
       html: ''
     } as unknown as MailRequest
 
-    const parsed_mail_request = await verify_mail_request(mail_request)
+    const parsed_mail_request = verify_mail_request(mail_request)
     expect(parsed_mail_request).to.be.undefined
   })
 
-  it('It should not return `undefined` if `to` is an array', async () => {
+  it('It should not return `undefined` if `to` is an array', () => {
     const mail_request = {
       to: ['test@email.com'],
       from: 'test@email.com',
@@ -24,11 +24,11 @@ describe('get_mail_request', () => {
       html: ''
     } as MailRequest
 
-    const parsed_mail_request = await verify_mail_request(mail_request)
+    const parsed_mail_request = verify_mail_request(mail_request)
     expect(parsed_mail_request).to.not.be.undefined
   })
 
-  it('It should return `undefined` if `to` is an empty array', async () => {
+  it('It should return `undefined` if `to` is an empty array', () => {
     const mail_request = {
       to: [],
       from: 'test@email.com',
@@ -36,7 +36,7 @@ describe('get_mail_request', () => {
       html: ''
     } as MailRequest
 
-    const parsed_mail_request = await verify_mail_request(mail_request)
+    const parsed_mail_request = verify_mail_request(mail_request)
     expect(parsed_mail_request).to.be.undefined
   })
 })

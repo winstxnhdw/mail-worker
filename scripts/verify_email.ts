@@ -17,7 +17,7 @@ async function main() {
 
   const email = await createInterface(stdin, stdout).question('[?] Email: ')
 
-  client.send(new VerifyEmailIdentityCommand({ EmailAddress: email })).then(console.log)
+  await client.send(new VerifyEmailIdentityCommand({ EmailAddress: email })).then(console.log)
 }
 
-main()
+void main()
