@@ -379,11 +379,19 @@
     "@smithy/types" "^1.1.0"
     tslib "^2.5.0"
 
-"@aws-sdk/types@3.357.0", "@aws-sdk/types@^3.222.0", "@aws-sdk/types@^3.357.0":
+"@aws-sdk/types@3.357.0":
   version "3.357.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-3.357.0.tgz#8491da71a4291cc2661c26a75089e86532b6a3b5"
   integrity sha512-/riCRaXg3p71BeWnShrai0y0QTdXcouPSM0Cn1olZbzTf7s71aLEewrc96qFrL70XhY4XvnxMpqQh+r43XIL3g==
   dependencies:
+    tslib "^2.5.0"
+
+"@aws-sdk/types@^3.222.0", "@aws-sdk/types@^3.369.0":
+  version "3.369.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-3.369.0.tgz#9721ff6789437f7b73532c35e399382a6535ea73"
+  integrity sha512-0LgII+RatF2OEFaFQcNyX72py4ZgWz+/JAv++PXv0gkIaTRnsJbSveQArNynEK+aAc/rZKWJgBvwT4FvLM2vgA==
+  dependencies:
+    "@smithy/types" "1.1.0"
     tslib "^2.5.0"
 
 "@aws-sdk/util-endpoints@3.357.0":
@@ -872,6 +880,13 @@
     "@smithy/middleware-stack" "^1.0.2"
     "@smithy/types" "^1.1.1"
     "@smithy/util-stream" "^1.0.2"
+    tslib "^2.5.0"
+
+"@smithy/types@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@smithy/types/-/types-1.1.0.tgz#f30a23202c97634cca5c1ac955a9bf149c955226"
+  integrity sha512-KzmvisMmuwD2jZXuC9e65JrgsZM97y5NpDU7g347oB+Q+xQLU6hQZ5zFNNbEfwwOJHoOvEVTna+dk1h/lW7alw==
+  dependencies:
     tslib "^2.5.0"
 
 "@smithy/types@^1.0.0", "@smithy/types@^1.1.0", "@smithy/types@^1.1.1":
