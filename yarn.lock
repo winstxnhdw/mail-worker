@@ -379,12 +379,20 @@
     "@smithy/types" "^1.1.0"
     tslib "^2.5.0"
 
-"@aws-sdk/types@3.369.0", "@aws-sdk/types@^3.222.0", "@aws-sdk/types@^3.357.0":
+"@aws-sdk/types@3.369.0":
   version "3.369.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-3.369.0.tgz#9721ff6789437f7b73532c35e399382a6535ea73"
   integrity sha512-0LgII+RatF2OEFaFQcNyX72py4ZgWz+/JAv++PXv0gkIaTRnsJbSveQArNynEK+aAc/rZKWJgBvwT4FvLM2vgA==
   dependencies:
     "@smithy/types" "1.1.0"
+    tslib "^2.5.0"
+
+"@aws-sdk/types@^3.222.0", "@aws-sdk/types@^3.370.0":
+  version "3.370.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-3.370.0.tgz#79e0e4927529c957b5c5c2a00f7590a76784a5e4"
+  integrity sha512-8PGMKklSkRKjunFhzM2y5Jm0H2TBu7YRNISdYzXLUHKSP9zlMEYagseKVdmox0zKHf1LXVNuSlUV2b6SRrieCQ==
+  dependencies:
+    "@smithy/types" "^1.1.0"
     tslib "^2.5.0"
 
 "@aws-sdk/util-endpoints@3.369.0":
