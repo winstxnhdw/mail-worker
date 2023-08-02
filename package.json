@@ -8,13 +8,13 @@
     "testci": "mocha --require @swc-node/register --extensions ts 'tests/**/*.test.ts'"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.379.1",
+    "@aws-sdk/client-ses": "^3.382.0",
     "envalid": "^7.3.1",
     "tslib": "^2.6.1"
   },
   "devDependencies": {
     "@aws-sdk/types": "^3.370.0",
-    "@cloudflare/workers-types": "^4.20230724.0",
+    "@cloudflare/workers-types": "^4.20230801.0",
     "@swc-node/register": "^1.6.6",
     "@swc/core": "^1.3.73",
     "@types/chai": "^4.3.5",
