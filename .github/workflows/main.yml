@@ -34,7 +34,7 @@ jobs:
         run: yarn testci
 
       - name: Publish
-        uses: cloudflare/wrangler-action@3.0.0
+        uses: cloudflare/wrangler-action@2.0.0
         env:
           WORKER_ENDPOINT: ${{ secrets.WORKER_ENDPOINT }}
         with:
