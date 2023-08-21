@@ -33,7 +33,7 @@ jobs:
         run: bun run testci
 
       - name: Publish
-        uses: cloudflare/wrangler-action@v3.0.2
+        uses: cloudflare/wrangler-action@v3.1.0
         env:
           WORKER_ENDPOINT: ${{ secrets.WORKER_ENDPOINT }}
         with:
