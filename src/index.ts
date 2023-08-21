@@ -18,16 +18,16 @@ export default {
       Destination: { ToAddresses: mail_request.to },
       Message: {
         Subject: { Data: mail_request.subject },
-        Body: { Html: { Data: mail_request.html } }
-      }
+        Body: { Html: { Data: mail_request.html } },
+      },
     })
 
     const client = new SESClient({
       region: config.AWS_REGION,
       credentials: {
         accessKeyId: config.AWS_ACCESS_KEY_ID,
-        secretAccessKey: config.AWS_SECRET_ACCESS_KEY
-      }
+        secretAccessKey: config.AWS_SECRET_ACCESS_KEY,
+      },
     })
 
     const send_mail = await client.send(mail).catch(console.error)
@@ -35,5 +35,5 @@ export default {
     return send_mail === undefined
       ? new Response('Failed to send email!', { status: 500 })
       : new Response('Email sent!', { status: 200 })
-  }
+  },
 }

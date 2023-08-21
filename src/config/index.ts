@@ -10,5 +10,5 @@ export const get_config = (environment: Record<string, unknown>) =>
   cleanEnv(environment, {
     AWS_REGION: region(),
     AWS_ACCESS_KEY_ID: str(),
-    AWS_SECRET_ACCESS_KEY: str()
+    AWS_SECRET_ACCESS_KEY: str(),
   })
