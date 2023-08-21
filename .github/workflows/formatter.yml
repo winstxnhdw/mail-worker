@@ -1,0 +1,44 @@
+name: Format
+
+on:
+  push:
+    paths:
+      - src/**
+      - .github/workflows/formatter.yml
+      - .prettierrc
+
+permissions:
+  contents: write
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install node dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Fix lints
+        run: bun run lint --fix
+
+      - name: Format with Prettier
+        run: bun run prettier --write src
+
+      - name: Set Git config
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "style: format scripts" | true
+          git push
