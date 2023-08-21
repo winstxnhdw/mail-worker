@@ -41,4 +41,5 @@ jobs:
         run: |
           git add .
           git commit -m "style: format scripts" | true
+          git pull --rebase
           git push
