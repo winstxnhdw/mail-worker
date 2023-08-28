@@ -4,8 +4,7 @@
     "dev": "wrangler dev",
     "deploy": "wrangler publish",
     "verify-email": "bun scripts/verify_email.ts",
-    "test": "bun test --watch",
-    "testci": "bun test"
+    "test": "bun test --watch"
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.387.0",

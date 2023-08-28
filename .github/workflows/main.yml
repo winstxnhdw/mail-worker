@@ -30,7 +30,7 @@ jobs:
         run: bun run lint
 
       - name: Test
-        run: bun run testci
+        run: bun test
 
       - name: Publish
         uses: cloudflare/wrangler-action@v3.1.0
