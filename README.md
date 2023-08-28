@@ -60,5 +60,5 @@ echo AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY >> .env
 Now, pipe your email as stdin to the `verify-email` script.
 
 ```bash
-echo $EMAIL_ADDRESS | bun run verify-email
+echo $EMAIL_ADDRESS | bun verify-email
 ```
