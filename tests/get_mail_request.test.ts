@@ -7,7 +7,7 @@ test('It should return `undefined` if `to` is not an array', () => {
     to: 'test@email.com',
     from: 'test@email.com',
     subject: '',
-    html: ''
+    html: '',
   } as unknown as MailRequest
 
   const parsed_mail_request = verify_mail_request(mail_request)
@@ -19,7 +19,7 @@ test('It should not return `undefined` if `to` is an array', () => {
     to: ['test@email.com'],
     from: 'test@email.com',
     subject: '',
-    html: ''
+    html: '',
   } as MailRequest
 
   const parsed_mail_request = verify_mail_request(mail_request)
@@ -31,7 +31,7 @@ test('It should return `undefined` if `to` is an empty array', () => {
     to: [],
     from: 'test@email.com',
     subject: '',
-    html: ''
+    html: '',
   } as MailRequest
 
   const parsed_mail_request = verify_mail_request(mail_request)
