@@ -3,7 +3,7 @@ name: Format
 on:
   push:
     paths:
-      - src/**
+      - '**.ts'
       - .github/workflows/formatter.yml
       - .prettierrc
 
