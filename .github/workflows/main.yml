@@ -5,10 +5,12 @@ on:
     branches: [main]
     paths:
       - src/**
+      - tests/**
       - .github/workflows/main.yml
-      - package.json
       - tsconfig.json
       - wrangler.toml
+      - package.json
+      - bun.lockb
 
 jobs:
   deploy:
