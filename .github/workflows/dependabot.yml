@@ -16,13 +16,13 @@ jobs:
           bun-version: latest
 
       - name: Install node dependencies
-        run: bun install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Lint
-        run: bun lint
+        run: pnpm lint
 
       - name: Test
-        run: bun test
+        run: pnpm test
 
   auto-merge:
     needs: build
