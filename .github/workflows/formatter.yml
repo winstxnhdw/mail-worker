@@ -6,6 +6,8 @@ on:
       - '**.ts'
       - .github/workflows/formatter.yml
       - .prettierrc
+      - package.json
+      - bun.lockb
 
 permissions:
   contents: write
