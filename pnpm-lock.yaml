@@ -33,7 +33,7 @@ devDependencies:
     version: 6.7.4(eslint@8.50.0)(typescript@5.2.2)
   bun-types:
     specifier: latest
-    version: 1.0.4-canary.20231004T140131
+    version: 1.0.5-canary.20231005T140125
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
@@ -1596,8 +1596,8 @@ packages:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
     dev: true
 
-  /bun-types@1.0.4-canary.20231004T140131:
-    resolution: {integrity: sha512-k9DSGP8+mJTJHY/87Q2NqixeXRw04mgIHDSIi29D/bhOu7HqZbO1l+48/aiS8miUpj59ZgJVgpSi+Px33yMCJQ==}
+  /bun-types@1.0.5-canary.20231005T140125:
+    resolution: {integrity: sha512-ajUcxaLP3nkPKTs4Iu3r2YaE+xyIU7RlO15bye8yUwZ/cYKHKIw//Xr2xSgi73y7aIuM8/HHK43WhJxdhrI4CQ==}
     dev: true
 
   /callsites@3.1.0:
