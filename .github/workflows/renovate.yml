@@ -10,14 +10,8 @@ jobs:
 
   auto-merge:
     needs: test
-    if: ${{ github.actor == 'renovate[bot]' }}
-    runs-on: ubuntu-latest
+    uses: winstxnhdw/actions/.github/workflows/renovate-public.yml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
     permissions:
       contents: write
-
-    steps:
-      - name: Auto-merge Dependabot PRs
-        run: gh pr merge --auto --rebase $PR_URL
-        env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
