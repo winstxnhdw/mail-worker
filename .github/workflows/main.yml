@@ -2,37 +2,28 @@ name: Deploy
 
 on:
   push:
-    branches: [main]
+    branches: main
     paths:
-      - src/**
-      - tests/**
       - .github/workflows/main.yml
       - tsconfig.json
       - wrangler.toml
       - package.json
       - bun.lockb
+      - '**.ts'
 
 jobs:
+  test:
+    uses: winstxnhdw/actions/.github/workflows/bun.yml@main
+    with:
+      disable-build: true
+
   deploy:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-
-      - name: Lint
-        run: bun lint
-
-      - name: Test
-        run: bun test
 
       - name: Publish
         uses: cloudflare/wrangler-action@v3.1.1

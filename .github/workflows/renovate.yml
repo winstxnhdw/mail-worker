@@ -1,0 +1,23 @@
+name: Renovate
+
+on: pull_request
+
+jobs:
+  test:
+    uses: winstxnhdw/actions/.github/workflows/bun.yml@main
+    with:
+      disable-build: true
+
+  auto-merge:
+    needs: test
+    if: ${{ github.actor == 'renovate[bot]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Auto-merge Dependabot PRs
+        run: gh pr merge --auto --rebase $PR_URL
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

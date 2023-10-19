@@ -2,7 +2,7 @@
 
 [![main.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/main.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/main.yml)
 [![formatter.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/formatter.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/formatter.yml)
-[![dependabot.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/dependabot.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/dependabot.yml)
+[![renovate.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/renovate.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/renovate.yml)
 
 `mail-worker` is a [Cloudflare Worker](https://workers.cloudflare.com/) built for sending emails with [AWS SES](https://aws.amazon.com/ses/).
 
