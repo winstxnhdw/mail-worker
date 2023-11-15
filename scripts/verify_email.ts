@@ -1,6 +1,5 @@
 import { get_config } from '@/config'
 import { SESClient, VerifyEmailIdentityCommand } from '@aws-sdk/client-ses'
-import 'dotenv/config'
 import { env, stdin, stdout } from 'process'
 import { createInterface } from 'readline/promises'
 
@@ -15,10 +14,7 @@ async function main() {
     },
   })
 
-  console.log(config.AWS_ACCESS_KEY_ID)
-
   const email = await createInterface(stdin, stdout).question('[?] Email: ')
-
   await client.send(new VerifyEmailIdentityCommand({ EmailAddress: email })).then(console.log)
 }
 
