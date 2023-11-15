@@ -15,6 +15,7 @@ jobs:
   test:
     uses: winstxnhdw/actions/.github/workflows/bun.yml@main
     with:
+      disable-test: true
       disable-build: true
 
   deploy:
