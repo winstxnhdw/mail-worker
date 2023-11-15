@@ -7,7 +7,7 @@ async function main(request: Request, environment: Environment): Promise<Respons
   const config = get_config(environment)
   const mail_request = await get_mail_request(request)
 
-  if (mail_request === undefined) {
+  if (!mail_request) {
     return new Response('Invalid request!', { status: 400 })
   }
 
@@ -35,7 +35,7 @@ async function main(request: Request, environment: Environment): Promise<Respons
 
   const send_mail = await client.send(mail).catch(console.error)
 
-  return send_mail === undefined
+  return !send_mail
     ? new Response('Failed to send email!', { status: 500 })
     : new Response('Email sent!', { status: 200 })
 }

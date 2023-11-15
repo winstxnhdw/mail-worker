@@ -1,6 +1,9 @@
-import type { MailRequest } from '@/types/'
+import { MailRequestSchema } from '@/schemas'
+import { z } from 'zod'
 
-const parse_mail_request = async (request: Request): Promise<MailRequest | undefined> => {
+type MailRequest = z.infer<typeof MailRequestSchema>
+
+const parse_mail_request = async (request: Request): Promise<Partial<MailRequest> | undefined> => {
   try {
     return request.json()
   } catch {
@@ -8,17 +11,8 @@ const parse_mail_request = async (request: Request): Promise<MailRequest | undef
   }
 }
 
-export const verify_mail_request = (mail_request: MailRequest): MailRequest | undefined =>
-  mail_request.from === undefined ||
-  mail_request.subject === undefined ||
-  mail_request.html === undefined ||
-  mail_request.to === undefined ||
-  mail_request.to.length === 0 ||
-  !Array.isArray(mail_request.to)
-    ? undefined
-    : mail_request
-
 export const get_mail_request = async (request: Request): Promise<MailRequest | undefined> => {
   const mail_request = await parse_mail_request(request)
-  return mail_request !== undefined ? verify_mail_request(mail_request) : mail_request
+  const verified_mail_request = MailRequestSchema.safeParse(mail_request)
+  return verified_mail_request.success ? verified_mail_request.data : undefined
 }
