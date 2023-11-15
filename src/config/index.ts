@@ -1,14 +1,12 @@
-import { cleanEnv, makeValidator, str } from 'envalid'
-
-const region = makeValidator((region) => {
-  if (typeof region !== 'string') throw new Error('Region must be a string.')
-  if (!/^[a-z]{2}-[a-z]+-\d$/.test(region)) throw new Error('Region must be in the format of "xx-xxxx-x".')
-  return region
-})
+import { object, string } from 'zod'
 
 export const get_config = (environment: Record<string, unknown>) =>
-  cleanEnv(environment, {
-    AWS_REGION: region(),
-    AWS_ACCESS_KEY_ID: str(),
-    AWS_SECRET_ACCESS_KEY: str(),
-  })
+  object({
+    AWS_REGION: string().regex(/^[a-z]{2}-[a-z]+-\d$/, {
+      message: 'Region must be in the format of "xx-xxxx-x".',
+    }),
+    AWS_ACCESS_KEY_ID: string().regex(/^[A-Z0-9]{20}$/, {
+      message: 'Access key must be 20 characters long and only contain uppercase letters and numbers.',
+    }),
+    AWS_SECRET_ACCESS_KEY: string(),
+  }).parse(environment)
