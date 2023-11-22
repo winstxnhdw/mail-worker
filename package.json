@@ -3,7 +3,7 @@
     "lint": "eslint .",
     "dev": "wrangler dev",
     "deploy": "wrangler publish",
-    "verify-email": "bun run scripts/verify_email.ts",
+    "verify-email": "bun scripts/verify_email.ts",
     "test": "bun test --watch"
   },
   "dependencies": {
