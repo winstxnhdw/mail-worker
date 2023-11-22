@@ -3,7 +3,7 @@
     "lint": "eslint .",
     "dev": "wrangler dev",
     "deploy": "wrangler publish",
-    "verify-email": "node --env-file=.env -r @swc-node/register scripts/verify_email.ts",
+    "verify-email": "bun run scripts/verify_email.ts",
     "test": "bun test --watch"
   },
   "dependencies": {
@@ -14,7 +14,6 @@
   "devDependencies": {
     "@aws-sdk/types": "^3.370.0",
     "@cloudflare/workers-types": "^4.20230807.0",
-    "@swc-node/register": "^1.6.8",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "bun-types": "latest",

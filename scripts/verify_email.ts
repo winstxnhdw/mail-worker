@@ -1,10 +1,8 @@
 import { get_config } from '@/config'
 import { SESClient, VerifyEmailIdentityCommand } from '@aws-sdk/client-ses'
-import { env, stdin, stdout } from 'process'
-import { createInterface } from 'readline/promises'
 
 async function main() {
-  const config = get_config(env)
+  const config = get_config(Bun.env)
 
   const client = new SESClient({
     region: config.AWS_REGION,
@@ -14,7 +12,12 @@ async function main() {
     },
   })
 
-  const email = await createInterface(stdin, stdout).question('[?] Email: ')
+  const email = prompt('[?] Email: ')
+
+  if (!email) {
+    throw new Error('Email is required!')
+  }
+
   await client.send(new VerifyEmailIdentityCommand({ EmailAddress: email })).then(console.log)
 }
 
