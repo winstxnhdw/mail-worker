@@ -20,9 +20,9 @@ bun install
 
 ### Request headers
 
-> | name      |  type    | description                                                           |
-> |-----------|----------|-------------------------|-----------------------------------------------------------------------|
-> | X-Auth-Token        | required | Value of your `AUTH_TOKEN` environment variable.                                 |
+> | name           |  type    | description                                         |
+> |----------------|----------|-----------------------------------------------------|
+> | X-Auth-Token   | optional | Value of your `AUTH_TOKEN` environment variable.    |
 
 ### Parameters
 

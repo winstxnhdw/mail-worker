@@ -9,5 +9,5 @@ export const get_config = (environment: Record<string, unknown>) =>
       message: 'Access key must be 20 characters long and only contain uppercase letters and numbers.',
     }),
     AWS_SECRET_ACCESS_KEY: string(),
-    AUTH_TOKEN: string(),
+    AUTH_TOKEN: string().optional(),
   }).parse(environment)
