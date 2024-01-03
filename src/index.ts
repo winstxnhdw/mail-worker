@@ -1,10 +1,13 @@
-import { get_config } from '@/config'
-import { get_mail_request } from '@/get_mail_request'
-import type { Environment } from '@/types'
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses'
-
 async function main(request: Request, environment: Environment): Promise<Response> {
   const config = get_config(environment)
+  
+  // Authentication step
+  const requestToken = request.headers.get('x-custom-token');
+
+  if (requestToken !== config.AUTH_TOKEN) {
+    return new Response('Unauthorized!', { status: 401 })
+  }
+
   const mail_request = await get_mail_request(request)
 
   if (!mail_request) {
