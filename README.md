@@ -18,6 +18,12 @@ bun install
 
 `POST` **`/`** `(sends email to recipient(s))`
 
+### Request headers
+
+> | name      |  type    | description                                                           |
+> |-----------|----------|-------------------------|-----------------------------------------------------------------------|
+> | X-Auth-Token        | required | Value of your `AUTH_TOKEN` environment variable.                                 |
+
 ### Parameters
 
 > | name      |  type    | data type               | description                                                           |
@@ -38,7 +44,7 @@ bun install
 ### Example cURL
 
 > ```bash
-> curl $MAIL_WORKER_ENDPOINT -H 'Content-Type: application/json' -d \
+> curl $MAIL_WORKER_ENDPOINT -H 'X-Auth-Token: YOUR_SECRET_TOKEN' -H 'Content-Type: application/json' -d \
 > '{
 >    "to": ["test@test.com"],
 >    "from": "test@test.com",

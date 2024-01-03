@@ -7,10 +7,10 @@ async function main(request: Request, environment: Environment): Promise<Respons
   const config = get_config(environment)
   
   // Authentication step
-  const requestToken = request.headers.get('x-custom-token');
+  const requestToken = request.headers.get('x-auth-token');
 
   if (requestToken !== config.AUTH_TOKEN) {
-    return new Response('Unauthorized!', { status: 401 })
+    return new Response('Unauthorized! Please specify your token in the request.', { status: 401 })
   }
 
   const mail_request = await get_mail_request(request)
