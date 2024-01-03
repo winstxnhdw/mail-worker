@@ -39,6 +39,7 @@ bun install
 > |---------------|--------------------------------|-----------------------------------------------------------------------|
 > | `200`         | `text/plain`                   | `Email sent!`                                                         |
 > | `400`         | `text/plain`                   | `Invalid request!`                                                    |
+> | `401`         | `text/plain`                   | `Unauthorized! Please check your token in the request.`               |
 > | `500`         | `text/plain`                   | `Failed to send email!`                                               |
 
 ### Example cURL
