@@ -1,9 +1,8 @@
 import { get_config } from '@/config'
 import { get_mail_request } from '@/get_mail_request'
-import type { Environment } from '@/types'
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses'
 
-async function main(request: Request, environment: Environment): Promise<Response> {
+async function main(request: Request, environment: Record<string, unknown>): Promise<Response> {
   const config = get_config(environment)
   const request_token = request.headers.get('x-auth-token')
 
