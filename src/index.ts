@@ -16,9 +16,13 @@ async function main(request: Request, environment: Record<string, unknown>): Pro
     return new Response('Invalid request!', { status: 400 })
   }
 
+  const body = {
+    Html: { Data: mail_request.html },
+  }
+
   const message = {
     Subject: { Data: mail_request.subject },
-    Body: { Html: { Data: mail_request.html } },
+    Body: body,
   }
 
   const mail = new SendEmailCommand({
