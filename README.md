@@ -18,7 +18,7 @@ bun install
 
 `POST` **`/`** `(sends email to recipient(s))`
 
-### Request headers
+### Request Headers
 
 > | name           |  type    | description                                         |
 > |----------------|----------|-----------------------------------------------------|
