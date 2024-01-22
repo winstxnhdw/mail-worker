@@ -20,15 +20,15 @@ bun install
 
 ### Request Headers
 
-> | name           |  type    | description                                         |
-> |----------------|----------|-----------------------------------------------------|
-> | X-Auth-Token   | optional | Value of your `AUTH_TOKEN` environment variable.    |
+> | name           |  type    | description                                      |
+> | -------------- | -------- | ------------------------------------------------ |
+> | X-Auth-Token   | optional | value of your `AUTH_TOKEN` environment variable. |
 
 ### Parameters
 
 > | name      |  type    | data type               | description                                                           |
-> |-----------|----------|-------------------------|-----------------------------------------------------------------------|
-> | to        | required | `string[]`              | an array of recipient's email address                                 |
+> | --------- | -------- | ----------------------- | --------------------------------------------------------------------- |
+> | to        | required | `string[]`              | recipient's email address(es)                                         |
 > | from      | required | `string`                | sender's email address                                                |
 > | subject   | required | `string`                | email subject                                                         |
 > | html      | required | `string`                | email content                                                         |
@@ -36,7 +36,7 @@ bun install
 ### Responses
 
 > | http code     | content-type                   | response                                                              |
-> |---------------|--------------------------------|-----------------------------------------------------------------------|
+> | ------------- | ------------------------------ | --------------------------------------------------------------------- |
 > | `200`         | `text/plain`                   | `Email sent!`                                                         |
 > | `400`         | `text/plain`                   | `Invalid request!`                                                    |
 > | `401`         | `text/plain`                   | `Unauthorized! Please check your token in the request.`               |
