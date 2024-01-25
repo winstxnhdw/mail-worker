@@ -7,7 +7,7 @@ async function main(request: Request, environment: Record<string, unknown>): Pro
   const request_token = request.headers.get('x-auth-token')
 
   if (config.AUTH_TOKEN && request_token !== config.AUTH_TOKEN) {
-    return new Response('Unauthorized! Please check your token in the request.', { status: 401 })
+    return new Response('Unauthorised! Please check your token in the request.', { status: 401 })
   }
 
   const mail_request = await get_mail_request(request)

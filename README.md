@@ -16,7 +16,7 @@ bun install
 
 ## Usage
 
-`POST` **`/`** `(sends email to recipient(s))`
+`POST` **`/`** `(send email to recipient(s))`
 
 ### Request Headers
 
@@ -39,7 +39,7 @@ bun install
 > | ------------- | ------------------------------ | --------------------------------------------------------------------- |
 > | `200`         | `text/plain`                   | `Email sent!`                                                         |
 > | `400`         | `text/plain`                   | `Invalid request!`                                                    |
-> | `401`         | `text/plain`                   | `Unauthorized! Please check your token in the request.`               |
+> | `401`         | `text/plain`                   | `Unauthorised! Please check your token in the request.`               |
 > | `500`         | `text/plain`                   | `Failed to send email!`                                               |
 
 ### Example cURL
@@ -68,9 +68,21 @@ bun install
 >  }'
 > ```
 
-## Authentication
+## Setup
 
-You may secure your endpoint by setting the following environment variable.
+### Environment
+
+Your worker must have the following environment variables.
+
+```bash
+echo $AWS_REGION | npx wrangler secret put AWS_REGION
+echo $AWS_ACCESS_KEY_ID | npx wrangler secret put AWS_ACCESS_KEY_ID
+echo $AWS_SECRET_ACCESS_KEY | npx wrangler secret put AWS_SECRET_ACCESS_KEY
+```
+
+### Authentication
+
+Optionally, you may secure your endpoint by setting the following environment variable.
 
 ```bash
 echo $AUTH_TOKEN | npx wrangler secret put AUTH_TOKEN
@@ -81,12 +93,14 @@ echo $AUTH_TOKEN | npx wrangler secret put AUTH_TOKEN
 To use any sender email, the email must first be verified. The verification will require the following environment variables. You may populate your environment with the following.
 
 ```bash
-echo AWS_REGION=$AWS_REGION >> .env
-echo AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID >> .env
-echo AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY >> .env
+{
+  echo "AWS_REGION=$AWS_REGION"
+  echo "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
+  echo "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
+} >> .env
 ```
 
-Now, pipe your email as stdin to the `verify-email` script.
+Now, pipe your email to the `verify-email` script.
 
 ```bash
 echo $EMAIL_ADDRESS | bun verify-email
