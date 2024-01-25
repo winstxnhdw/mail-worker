@@ -12,12 +12,12 @@ async function main() {
 
   const credentials = {
     accessKeyId: config.AWS_ACCESS_KEY_ID,
-    secretAccessKey: config.AWS_SECRET_ACCESS_KEY
+    secretAccessKey: config.AWS_SECRET_ACCESS_KEY,
   }
 
   const client = new SESClient({
     region: config.AWS_REGION,
-    credentials: credentials
+    credentials: credentials,
   })
 
   await client.send(new VerifyEmailIdentityCommand({ EmailAddress: email })).then(console.log)
