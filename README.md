@@ -20,9 +20,9 @@ bun install
 
 ### Request Headers
 
-> | name           |  type    | description                                      |
-> | -------------- | -------- | ------------------------------------------------ |
-> | X-Auth-Token   | optional | value of your `AUTH_TOKEN` environment variable. |
+> | name           |  type    | description                       |
+> | -------------- | -------- | --------------------------------- |
+> | X-Auth-Token   | optional | `AUTH_TOKEN` environment variable |
 
 ### Parameters
 
@@ -45,6 +45,18 @@ bun install
 ### Example cURL
 
 > ```bash
+> curl $MAIL_WORKER_ENDPOINT -H "Content-Type: application/json" -d \
+> '{
+>    "to": ["test@test.com"],
+>    "from": "test@test.com",
+>    "subject": "test",
+>    "html": "test"
+>  }'
+> ```
+
+### Example cURL with Authentication
+
+> ```bash
 > curl $MAIL_WORKER_ENDPOINT \
 >   -H "X-Auth-Token: $AUTH_TOKEN" \
 >   -H "Content-Type: application/json" -d \
@@ -55,6 +67,14 @@ bun install
 >    "html": "test"
 >  }'
 > ```
+
+## Authentication
+
+You may secure your endpoint by setting the following environment variable.
+
+```bash
+echo $AUTH_TOKEN | npx wrangler secret put AUTH_TOKEN
+```
 
 ## Verify Email
 
