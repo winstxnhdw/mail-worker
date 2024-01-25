@@ -9,7 +9,7 @@ on:
       - wrangler.toml
       - package.json
       - bun.lockb
-      - '**.ts'
+      - src/*
 
 jobs:
   test:

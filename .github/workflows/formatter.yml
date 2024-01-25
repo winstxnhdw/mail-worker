@@ -7,7 +7,7 @@ on:
       - .prettierrc
       - package.json
       - bun.lockb
-      - '**.ts'
+      - src/*
 
 permissions:
   contents: write
