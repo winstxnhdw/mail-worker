@@ -1,6 +1,7 @@
 # mail-worker
 
 [![main.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/main.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/main.yml)
+[![deploy.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/deploy.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/deploy.yml)
 [![formatter.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/formatter.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/formatter.yml)
 [![renovate.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/renovate.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/renovate.yml)
 

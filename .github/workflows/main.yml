@@ -1,8 +1,7 @@
-name: Deploy
+name: Test
 
 on:
   push:
-    branches: main
     paths:
       - .github/workflows/main.yml
       - tsconfig.json
@@ -17,25 +16,3 @@ jobs:
     with:
       disable-test: true
       disable-build: true
-
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-
-      - name: Publish
-        uses: cloudflare/wrangler-action@v3.4.1
-        env:
-          WORKER_ENDPOINT: ${{ secrets.WORKER_ENDPOINT }}
-        with:
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          command: deploy
