@@ -5,7 +5,6 @@ on:
     paths:
       - .github/workflows/main.yml
       - tsconfig.json
-      - wrangler.toml
       - package.json
       - bun.lockb
       - src/*

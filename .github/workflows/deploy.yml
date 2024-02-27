@@ -1,22 +1,27 @@
 name: Deploy
 
 on:
-  workflow_run:
-    workflows: [Test]
+  push:
     branches: main
-    types: [completed]
+    paths:
+      - .github/workflows/deploy.yml
+      - wrangler.toml
+  workflow_run:
+    workflows: Test
+    branches: main
+    types: completed
 
 jobs:
   deploy:
-    if: github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'push' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.1
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v1.1.1
         with:
           bun-version: latest
 
