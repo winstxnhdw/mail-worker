@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - .github/workflows/formatter.yml
+      - .eslintrc
+      - .eslintignore
       - .prettierrc
       - package.json
       - bun.lockb
-      - src/*
+      - '*.ts'
 
 permissions:
   contents: write
