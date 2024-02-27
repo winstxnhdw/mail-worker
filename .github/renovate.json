@@ -3,6 +3,19 @@
   "extends": ["config:base"],
   "automerge": true,
   "automergeStrategy": "squash",
-  "schedule": ["before 6pm"],
-  "timezone": "Asia/Singapore"
+  "schedule": "before 6pm",
+  "timezone": "Asia/Singapore",
+  "groupName": "all dependencies",
+  "groupSlug": "all",
+  "lockFileMaintenance": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "groupName": "all dependencies",
+      "groupSlug": "all",
+      "matchPackagePatterns": "*"
+    }
+  ],
+  "separateMajorMinor": false
 }
