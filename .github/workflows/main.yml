@@ -1,9 +1,11 @@
 name: Test
 
 on:
+  pull_request:
+    types: opened
   push:
     paths:
-      - .github/workflows/main.yml
+      - .github/workflows/test.yml
       - .eslintrc
       - .eslintignore
       - tsconfig.json
