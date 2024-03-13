@@ -8,19 +8,19 @@
   },
   "dependencies": {
     "@aws-sdk/client-ses": "3.533.0",
-    "tslib": "^2.6.1",
+    "tslib": "^2.6.2",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@aws-sdk/types": "^3.370.0",
-    "@cloudflare/workers-types": "^4.20230807.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.0",
+    "@aws-sdk/types": "^3.533.0",
+    "@cloudflare/workers-types": "^4.20240312.0",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
     "bun-types": "latest",
-    "eslint": "^8.46.0",
-    "eslint-config-prettier": "^9.0.0",
-    "prettier": "^3.0.1",
-    "typescript": "^5.1.6",
-    "wrangler": "^3.5.0"
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.2",
+    "wrangler": "^3.33.0"
   }
 }
