@@ -3,6 +3,7 @@
   "extends": ["config:base"],
   "automerge": true,
   "automergeStrategy": "squash",
+  "rangeStrategy": "bump",
   "schedule": "before 6pm",
   "timezone": "Asia/Singapore",
   "groupName": "all dependencies",
