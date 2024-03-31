@@ -4,7 +4,7 @@ import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses'
 
 async function main(request: Request, environment: Record<string, unknown>): Promise<Response> {
   const config = get_config(environment)
-  const request_token = request.headers.get('x-auth-token')
+  const request_token = request.headers.get('Authorization')
 
   if (config.AUTH_TOKEN && request_token !== config.AUTH_TOKEN) {
     return new Response('Unauthorised! Please check your token in the request.', { status: 401 })
