@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@aws-sdk/types": "^3.535.0",
-    "@cloudflare/workers-types": "^4.20240329.0",
+    "@cloudflare/workers-types": "^4.20240402.0",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
     "bun-types": "latest",
