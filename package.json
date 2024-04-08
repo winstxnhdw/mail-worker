@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint": "eslint .",
+    "lint": "biome check .",
     "dev": "wrangler dev",
     "deploy": "wrangler publish",
     "verify-email": "bun scripts/verify_email.ts",
@@ -12,14 +12,10 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.6.4",
     "@aws-sdk/types": "^3.535.0",
     "@cloudflare/workers-types": "^4.20240405.0",
-    "@typescript-eslint/eslint-plugin": "^7.5.0",
-    "@typescript-eslint/parser": "^7.5.0",
     "bun-types": "latest",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.2.5",
     "typescript": "^5.4.4",
     "wrangler": "^3.48.0"
   }

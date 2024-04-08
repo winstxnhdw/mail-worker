@@ -6,8 +6,7 @@ on:
   push:
     paths:
       - .github/workflows/test.yml
-      - .eslintrc
-      - .eslintignore
+      - biome.json
       - tsconfig.json
       - package.json
       - bun.lockb

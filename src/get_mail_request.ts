@@ -1,5 +1,5 @@
 import { MailRequestSchema } from '@/schemas'
-import { z } from 'zod'
+import type { z } from 'zod'
 
 type MailRequest = z.infer<typeof MailRequestSchema>
 
