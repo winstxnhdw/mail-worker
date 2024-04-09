@@ -7,7 +7,7 @@ on:
       - biome.json
       - package.json
       - bun.lockb
-      - '*.ts'
+      - '**.ts'
 
 permissions:
   contents: write

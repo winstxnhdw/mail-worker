@@ -5,12 +5,12 @@ on:
     types: opened
   push:
     paths:
-      - .github/workflows/test.yml
+      - .github/workflows/main.yml
       - biome.json
       - tsconfig.json
       - package.json
       - bun.lockb
-      - '*.ts'
+      - '**.ts'
 
 jobs:
   test:
