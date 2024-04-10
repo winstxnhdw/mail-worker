@@ -16,7 +16,7 @@
     "@aws-sdk/types": "^3.535.0",
     "@cloudflare/workers-types": "^4.20240405.0",
     "bun-types": "latest",
-    "typescript": "^5.4.4",
+    "typescript": "^5.4.5",
     "wrangler": "^3.48.0"
   }
 }
