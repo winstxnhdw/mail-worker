@@ -9,7 +9,7 @@
   "dependencies": {
     "@aws-sdk/client-ses": "3.556.0",
     "tslib": "^2.6.2",
-    "zod": "^3.22.4"
+    "zod": "^3.22.5"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.0",
