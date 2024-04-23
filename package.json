@@ -9,12 +9,12 @@
   "dependencies": {
     "@aws-sdk/client-ses": "3.556.0",
     "tslib": "^2.6.2",
-    "zod": "^3.23.3"
+    "zod": "^3.23.4"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.1",
     "@aws-sdk/types": "^3.535.0",
-    "@cloudflare/workers-types": "^4.20240419.0",
+    "@cloudflare/workers-types": "^4.20240423.0",
     "bun-types": "latest",
     "typescript": "^5.4.5",
     "wrangler": "^3.51.2"
