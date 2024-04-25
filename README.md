@@ -58,7 +58,7 @@ bun install
 
 > ```bash
 > curl $MAIL_WORKER_ENDPOINT \
->   -H "X-Auth-Token: $AUTH_TOKEN" \
+>   -H "Authorization: $AUTH_TOKEN" \
 >   -H "Content-Type: application/json" -d \
 > '{
 >    "to": ["test@test.com"],
