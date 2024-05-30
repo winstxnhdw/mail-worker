@@ -1,5 +1,9 @@
 name = "mail-worker"
 main = "src/index.ts"
 compatibility_flags = ["nodejs_compat", "nodejs_als"]
-compatibility_date = "2023-03-25"
+compatibility_date = "2024-04-29"
 minify = true
+send_metrics = false
+
+[placement]
+mode = "smart"
