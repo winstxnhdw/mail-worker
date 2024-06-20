@@ -12,11 +12,11 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.1",
+    "@biomejs/biome": "1.8.2",
     "@aws-sdk/types": "^3.598.0",
-    "@cloudflare/workers-types": "^4.20240614.0",
+    "@cloudflare/workers-types": "^4.20240620.0",
     "bun-types": "latest",
-    "typescript": "^5.4.5",
+    "typescript": "^5.5.2",
     "wrangler": "^3.61.0"
   }
 }
