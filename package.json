@@ -14,9 +14,9 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@aws-sdk/types": "^3.609.0",
-    "@cloudflare/workers-types": "^4.20240620.0",
+    "@cloudflare/workers-types": "^4.20240701.0",
     "bun-types": "latest",
     "typescript": "^5.5.3",
-    "wrangler": "^3.63.2"
+    "wrangler": "^3.64.0"
   }
 }
