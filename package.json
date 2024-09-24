@@ -7,14 +7,14 @@
     "test": "bun test --watch"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "3.654.0",
+    "@aws-sdk/client-ses": "3.658.0",
     "tslib": "^2.7.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.2",
     "@aws-sdk/types": "^3.654.0",
-    "@cloudflare/workers-types": "^4.20240919.0",
+    "@cloudflare/workers-types": "^4.20240924.0",
     "bun-types": "latest",
     "typescript": "^5.6.2",
     "wrangler": "^3.78.8"
