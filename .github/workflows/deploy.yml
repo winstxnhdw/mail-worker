@@ -26,7 +26,7 @@ jobs:
           bun-version: latest
 
       - name: Publish
-        uses: cloudflare/wrangler-action@v3.7.0
+        uses: cloudflare/wrangler-action@v3.8.0
         env:
           WORKER_ENDPOINT: ${{ secrets.WORKER_ENDPOINT }}
         with:
