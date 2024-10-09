@@ -7,7 +7,7 @@
     "test": "bun test --watch"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "3.667.0",
+    "@aws-sdk/client-ses": "3.668.0",
     "tslib": "^2.7.0",
     "zod": "^3.23.8"
   },
