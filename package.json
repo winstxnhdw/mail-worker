@@ -7,7 +7,7 @@
     "test": "bun test --watch"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "3.668.0",
+    "@aws-sdk/client-ses": "3.669.0",
     "tslib": "^2.7.0",
     "zod": "^3.23.8"
   },
@@ -17,6 +17,6 @@
     "@cloudflare/workers-types": "^4.20241004.0",
     "bun-types": "latest",
     "typescript": "^5.6.3",
-    "wrangler": "^3.80.2"
+    "wrangler": "^3.80.3"
   }
 }
