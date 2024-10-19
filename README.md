@@ -97,7 +97,7 @@ To use any sender email, the email must first be verified. The verification will
   echo "AWS_REGION=$AWS_REGION"
   echo "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
   echo "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
-} >> .env
+} > .env
 ```
 
 Now, pipe your email to the `verify-email` script.
