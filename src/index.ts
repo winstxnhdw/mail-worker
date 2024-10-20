@@ -3,12 +3,11 @@ import { get_mail_request } from '@/get_mail_request'
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses'
 
 async function main(request: Request, environment: Record<string, unknown>): Promise<Response> {
-  const config = get_config(environment)
-
-  if (config.AUTH_TOKEN && request.headers.get('Authorization') !== config.AUTH_TOKEN) {
+  if (environment['AUTH_TOKEN'] && request.headers.get('Authorization') !== environment['AUTH_TOKEN']) {
     return new Response(null, { status: 401 })
   }
 
+  const config = get_config(environment)
   const mail_request = await get_mail_request(request)
 
   if (!mail_request) {
