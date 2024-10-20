@@ -6,13 +6,13 @@ async function main(request: Request, environment: Record<string, unknown>): Pro
   const config = get_config(environment)
 
   if (config.AUTH_TOKEN && request.headers.get('Authorization') !== config.AUTH_TOKEN) {
-    return new Response('Unauthorised! Please check your token in the request.', { status: 401 })
+    return new Response(null, { status: 401 })
   }
 
   const mail_request = await get_mail_request(request)
 
   if (!mail_request) {
-    return new Response('Invalid request!', { status: 400 })
+    return new Response(null, { status: 400, statusText: 'Invalid mail request' })
   }
 
   const body = {
@@ -24,10 +24,16 @@ async function main(request: Request, environment: Record<string, unknown>): Pro
     Body: body,
   }
 
+  const destination = {
+    ToAddresses: mail_request.to,
+    CcAddresses: mail_request.cc ?? [],
+    BccAddresses: mail_request.bcc ?? [],
+  }
+
   const mail = new SendEmailCommand({
     Source: mail_request.from,
     ReturnPath: mail_request.from,
-    Destination: { ToAddresses: mail_request.to },
+    Destination: destination,
     Message: message,
   })
 
@@ -44,8 +50,8 @@ async function main(request: Request, environment: Record<string, unknown>): Pro
   const send_mail = await client.send(mail).catch(console.error)
 
   return !send_mail
-    ? new Response('Failed to send email!', { status: 500 })
-    : new Response('Email sent!', { status: 200 })
+    ? new Response(null, { status: 500, statusText: 'Email could not be sent' })
+    : new Response(null, { status: 200, statusText: 'Email sent successfully' })
 }
 
 export default {

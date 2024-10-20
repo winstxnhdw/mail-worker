@@ -26,21 +26,23 @@ bun install
 
 ### Parameters
 
-> | name      |  type    | data type               | description                                                           |
-> | --------- | -------- | ----------------------- | --------------------------------------------------------------------- |
-> | to        | required | `string[]`              | recipient's email address(es)                                         |
-> | from      | required | `string`                | sender's email address                                                |
-> | subject   | required | `string`                | email subject                                                         |
-> | html      | required | `string`                | email content                                                         |
+> | name      |  type    | data type               | description                   |
+> | --------- | -------- | ----------------------- | ----------------------------- |
+> | from      | required | `string`                | sender's email address        |
+> | to        | required | `string[]`              | recipient's email address(es) |
+> | cc        | optional | `string[]`              | cc recipient's email address  |
+> | bcc       | optional | `string[]`              | bcc recipient's email address |
+> | subject   | optional | `string`                | email subject                 |
+> | html      | optional | `string`                | email content                 |
 
 ### Responses
 
-> | http code     | content-type                   | response                                                              |
-> | ------------- | ------------------------------ | --------------------------------------------------------------------- |
-> | `200`         | `text/plain`                   | `Email sent!`                                                         |
-> | `400`         | `text/plain`                   | `Invalid request!`                                                    |
-> | `401`         | `text/plain`                   | `Unauthorised! Please check your token in the request.`               |
-> | `500`         | `text/plain`                   | `Failed to send email!`                                               |
+> | http code | content-type | reason                                                               |
+> | --------- | ------------ | -------------------------------------------------------------------- |
+> | `200`     | `text/plain` | email sent successfully                                              |
+> | `400`     | `text/plain` | invalid request body                                                 |
+> | `401`     | `text/plain` | invalid authentication token                                         |
+> | `500`     | `text/plain` | AWS SES is unavailable/setup incorrectly or the sender is unverified |
 
 ### Example cURL
 
