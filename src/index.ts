@@ -1,8 +1,10 @@
 import { get_config } from '@/config'
+import { cors } from '@/cors'
 import { get_mail_request } from '@/get_mail_request'
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses'
 
-async function main(request: Request, environment: Record<string, unknown>): Promise<Response> {
+async function main(request: Request, environment: Record<string, string>): Promise<Response> {
+  if (request.method === 'OPTIONS') return new Response(null, { status: 204 })
   if (environment['AUTH_TOKEN'] && request.headers.get('Authorization') !== environment['AUTH_TOKEN']) {
     return new Response(null, { status: 401 })
   }
@@ -54,5 +56,5 @@ async function main(request: Request, environment: Record<string, unknown>): Pro
 }
 
 export default {
-  fetch: main,
+  fetch: cors(main),
 }
