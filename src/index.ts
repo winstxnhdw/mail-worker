@@ -16,21 +16,24 @@ async function main(request: Request, environment: Record<string, string>): Prom
     return new Response(null, { status: 400, statusText: 'Invalid mail request' })
   }
 
-  const boundary = `----=_Part_${Date.now()}`
+  const boundary = `sub_${crypto.randomUUID()}`
   const email = [
     `From: ${mail_request.from}`,
     `To: ${mail_request.to.join(',')}`,
     `Cc: ${mail_request.cc.join(',')}`,
     `Subject: ${mail_request.subject}`,
-    `MIME-Version: 1.0\r\nContent-Type: multipart/mixed; boundary="${boundary}"\r\n`,
-    `--${boundary}\r\nContent-Type: text/html; charset="UTF-8"\r\nContent-Transfer-Encoding: 7bit`,
+    'MIME-Version: 1.0',
+    `Content-Type: multipart/mixed; boundary="${boundary}"\r\n`,
+    `--${boundary}`,
+    'Content-Type: text/html; charset="UTF-8"',
+    'Content-Transfer-Encoding: 7bit',
     `\r\n${mail_request.html}\r\n`,
   ]
 
-  for (const { filename, content, contentType } of mail_request.attachments) {
+  for (const { name, content, type } of mail_request.attachments) {
     email.push(`--${boundary}`)
-    email.push(`Content-Type: ${contentType}; name="${filename}"`)
-    email.push(`Content-Disposition: attachment; filename="${filename}"`)
+    email.push(`Content-Type: ${type}; name="${name}"`)
+    email.push(`Content-Disposition: attachment; filename="${name}"`)
     email.push('Content-Transfer-Encoding: base64')
     email.push(`\r\n${content}\r\n`)
   }

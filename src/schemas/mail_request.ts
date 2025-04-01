@@ -1,9 +1,9 @@
 import { array, object, string } from 'zod'
 
 const AttachmentSchema = object({
-  filename: string().default(crypto.randomUUID),
+  name: string().default(crypto.randomUUID),
   content: string().nonempty().base64(),
-  contentType: string().nonempty(),
+  type: string().nonempty(),
 })
 
 export const MailRequestSchema = object({
