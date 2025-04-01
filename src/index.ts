@@ -27,8 +27,8 @@ async function main(request: Request, environment: Record<string, string>): Prom
 
   const destination = {
     ToAddresses: mail_request.to,
-    CcAddresses: mail_request.cc ?? [],
-    BccAddresses: mail_request.bcc ?? [],
+    CcAddresses: mail_request.cc,
+    BccAddresses: mail_request.bcc,
   }
 
   const mail = new SendEmailCommand({
