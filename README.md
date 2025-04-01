@@ -57,6 +57,19 @@ bun install
 >  }'
 > ```
 
+### Example cURL with Attachment(s)
+
+> ```bash
+> curl $MAIL_WORKER_ENDPOINT -H "Content-Type: application/json" -d \
+> '{
+>    "to": ["test@test.com"],
+>    "from": "test@test.com",
+>    "subject": "test",
+>    "html": "test",
+>    "attachments": [{"name": "text.txt", "type": "text/plain", "content": "SGVsbG8gV29ybGQ="}]
+>  }'
+> ```
+
 ### Example cURL with Authentication
 
 > ```bash
