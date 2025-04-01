@@ -26,14 +26,15 @@ bun install
 
 ### Parameters
 
-> | name      |  type    | data type               | description                   |
-> | --------- | -------- | ----------------------- | ----------------------------- |
-> | from      | required | `string`                | sender's email address        |
-> | to        | required | `string[]`              | recipient's email address(es) |
-> | cc        | optional | `string[]`              | cc recipient's email address  |
-> | bcc       | optional | `string[]`              | bcc recipient's email address |
-> | subject   | optional | `string`                | email subject                 |
-> | html      | optional | `string`                | email content                 |
+> | name        |  type    | data type      | description                   |
+> | ----------- | -------- | ---------------| ----------------------------- |
+> | from        | required | `string`       | sender's email address        |
+> | to          | required | `string[]`     | recipient's email address(es) |
+> | cc          | optional | `string[]`     | cc recipient's email address  |
+> | bcc         | optional | `string[]`     | bcc recipient's email address |
+> | subject     | optional | `string`       | email subject                 |
+> | html        | optional | `string`       | email content                 |
+> | attachments | optional | `Attachment[]` | email attachments             |
 
 ### Responses
 
