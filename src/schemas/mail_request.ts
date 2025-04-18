@@ -11,7 +11,7 @@ export const MailRequestSchema = object({
   to: string().email().array(),
   cc: string().email().array().default([]),
   bcc: string().email().array().default([]),
-  subject: string().optional(),
-  html: string().optional(),
+  subject: string().default(''),
+  html: string().default(''),
   attachments: array(AttachmentSchema).default([]),
 })
