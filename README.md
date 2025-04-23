@@ -26,6 +26,8 @@ bun install
 
 ### Parameters
 
+#### MailRequestSchema
+
 > | name        |  type    | data type      | description                   |
 > | ----------- | -------- | ---------------| ----------------------------- |
 > | from        | required | `string`       | sender's email address        |
@@ -35,6 +37,14 @@ bun install
 > | subject     | optional | `string`       | email subject                 |
 > | html        | optional | `string`       | email content                 |
 > | attachments | optional | `Attachment[]` | email attachments             |
+
+#### AttachmentSchema
+
+> | name        |  type    | data type | description                              |
+> | ----------- | -------- | ----------| ---------------------------------------- |
+> | name        | optional | `string`  | name of the attachment                   |
+> | content     | required | `base64`  | base64-encoded content of the attachment |
+> | type        | required | `string`  | MIME type of the attachment              |
 
 ### Responses
 
