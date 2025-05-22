@@ -17,6 +17,6 @@
     "@cloudflare/workers-types": "latest",
     "bun-types": "latest",
     "typescript": "latest",
-    "wrangler": "4.16.0"
+    "wrangler": "4.16.1"
   }
 }
