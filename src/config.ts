@@ -1,4 +1,4 @@
-import { object, string } from 'zod'
+import { object, string } from 'zod';
 
 export const get_config = (environment: Record<string, unknown>) =>
   object({
@@ -9,4 +9,4 @@ export const get_config = (environment: Record<string, unknown>) =>
       message: 'Access key must be 20 characters long and only contain uppercase letters and numbers.',
     }),
     AWS_SECRET_ACCESS_KEY: string(),
-  }).parse(environment)
+  }).parse(environment);

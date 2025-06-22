@@ -1,1 +1,1 @@
-export { MailRequestSchema } from '@/schemas/mail_request'
+export { MailRequestSchema } from '@/schemas/mail_request';

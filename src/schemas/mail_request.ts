@@ -1,10 +1,10 @@
-import { array, object, string } from 'zod'
+import { array, object, string } from 'zod';
 
 const AttachmentSchema = object({
   name: string().default(crypto.randomUUID),
   content: string().nonempty().base64(),
   type: string().nonempty(),
-})
+});
 
 export const MailRequestSchema = object({
   from: string().email(),
@@ -14,4 +14,4 @@ export const MailRequestSchema = object({
   subject: string().default(''),
   html: string().default(''),
   attachments: array(AttachmentSchema).default([]),
-})
+});
