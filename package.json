@@ -16,7 +16,7 @@
     "@aws-sdk/types": "3.840.0",
     "@cloudflare/workers-types": "latest",
     "@types/bun": "latest",
-    "wrangler": "4.25.0"
+    "wrangler": "4.25.1"
   },
   "peerDependencies": {
     "typescript": "latest"
