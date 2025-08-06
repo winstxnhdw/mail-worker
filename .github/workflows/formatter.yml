@@ -4,9 +4,8 @@ on:
   push:
     paths:
       - .github/workflows/formatter.yml
-      - biome.json
-      - package.json
       - bun.lockb
+      - '**.json'
       - '**.ts'
 
 permissions:
@@ -14,4 +13,4 @@ permissions:
 
 jobs:
   format:
-    uses: winstxnhdw/actions/.github/workflows/format-bun.yml@main
+    uses: winstxnhdw/actions/.github/workflows/format-biome.yml@main
