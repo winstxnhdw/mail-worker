@@ -6,14 +6,6 @@
 
 `mail-worker` is a robust [Cloudflare Worker](https://workers.cloudflare.com/) built for sending emails with [AWS SES](https://aws.amazon.com/ses/) and [Bun](https://github.com/oven-sh/bun).
 
-## Development
-
-Install all dependencies.
-
-```bash
-bun install
-```
-
 ## Usage
 
 `POST` **`/`** `(send email to recipient(s))`
@@ -130,4 +122,12 @@ Now, pipe your email to the `verify-email` script.
 
 ```bash
 echo $EMAIL_ADDRESS | bun verify-email
+```
+
+## Development
+
+Install all dependencies.
+
+```bash
+bun install
 ```
