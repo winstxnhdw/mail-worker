@@ -1,16 +1,16 @@
-import { array, object, string } from 'zod';
+import { array, base64, email, object, string } from 'zod';
 
 const AttachmentSchema = object({
   name: string().default(crypto.randomUUID),
-  content: string().nonempty().base64(),
-  type: string().nonempty(),
+  content: base64().min(1),
+  type: string().min(1),
 });
 
 export const MailRequestSchema = object({
-  from: string().email(),
-  to: string().email().array(),
-  cc: string().email().array().default([]),
-  bcc: string().email().array().default([]),
+  from: email(),
+  to: email().array(),
+  cc: email().array().default([]),
+  bcc: email().array().default([]),
   subject: string().default(''),
   html: string().default(''),
   attachments: array(AttachmentSchema).default([]),

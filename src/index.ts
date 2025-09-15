@@ -31,11 +31,13 @@ async function main(request: Request, environment: Record<string, string>): Prom
   ];
 
   for (const { name, content, type } of mail_request.attachments) {
-    email.push(`--${boundary}`);
-    email.push(`Content-Type: ${type}; name="${name}"`);
-    email.push(`Content-Disposition: attachment; filename="${name}"`);
-    email.push('Content-Transfer-Encoding: base64');
-    email.push(`\r\n${content}\r\n`);
+    email.push(
+      `--${boundary}`,
+      `Content-Type: ${type}; name="${name}"`,
+      `Content-Disposition: attachment; filename="${name}"`,
+      'Content-Transfer-Encoding: base64',
+      `\r\n${content}\r\n`,
+    );
   }
 
   email.push(`--${boundary}--`);
