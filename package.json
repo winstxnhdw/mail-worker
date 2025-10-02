@@ -13,10 +13,10 @@
   },
   "devDependencies": {
     "@aws-sdk/types": "3.901.0",
-    "@biomejs/biome": "2.2.4",
+    "@biomejs/biome": "2.2.5",
     "@cloudflare/workers-types": "latest",
     "@types/bun": "latest",
-    "wrangler": "4.40.3"
+    "wrangler": "4.41.0"
   },
   "peerDependencies": {
     "typescript": "latest"
