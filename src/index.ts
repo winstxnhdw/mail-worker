@@ -1,3 +1,5 @@
+import '@/polyfills';
+
 import { SESClient, SendRawEmailCommand } from '@aws-sdk/client-ses';
 import { get_config } from '@/config';
 import { cors } from '@/cors';
