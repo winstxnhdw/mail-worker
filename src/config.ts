@@ -1,6 +1,6 @@
 import { object, string } from 'zod';
 
-export const get_config = (environment: Record<string, unknown>) =>
+export const getConfig = (environment: Record<string, unknown>) =>
   object({
     AWS_REGION: string().regex(/^[a-z]{2}-[a-z]+-\d$/, {
       message: 'Region must be in the format of "xx-xxxx-x".',

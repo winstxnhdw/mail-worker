@@ -1,9 +1,9 @@
 import '@/polyfills';
 
 import { SESClient, SendRawEmailCommand } from '@aws-sdk/client-ses';
-import { get_config } from '@/config';
+import { getConfig } from '@/config';
 import { cors } from '@/cors';
-import { get_mail_request } from '@/get_mail_request';
+import { getMailRequest } from '@/get-mail-request';
 
 async function main(request: Request, environment: Record<string, string>): Promise<Response> {
   if (request.method === 'OPTIONS') return new Response(null, { status: 204 });
@@ -11,28 +11,28 @@ async function main(request: Request, environment: Record<string, string>): Prom
     return new Response(null, { status: 401 });
   }
 
-  const config = get_config(environment);
-  const mail_request = await get_mail_request(request);
+  const config = getConfig(environment);
+  const mailRequest = await getMailRequest(request);
 
-  if (!mail_request) {
+  if (!mailRequest) {
     return new Response(null, { status: 400, statusText: 'Invalid mail request' });
   }
 
   const boundary = `sub_${crypto.randomUUID()}`;
   const email = [
-    `From: ${mail_request.from}`,
-    `To: ${mail_request.to.join(',')}`,
-    `Cc: ${mail_request.cc.join(',')}`,
-    `Subject: ${mail_request.subject}`,
+    `From: ${mailRequest.from}`,
+    `To: ${mailRequest.to.join(',')}`,
+    `Cc: ${mailRequest.cc.join(',')}`,
+    `Subject: ${mailRequest.subject}`,
     'MIME-Version: 1.0',
     `Content-Type: multipart/mixed; boundary="${boundary}"`,
     `\r\n--${boundary}`,
     'Content-Type: text/html; charset="UTF-8"',
     'Content-Transfer-Encoding: 7bit',
-    `\r\n${mail_request.html}\r\n`,
+    `\r\n${mailRequest.html}\r\n`,
   ];
 
-  for (const { name, content, type } of mail_request.attachments) {
+  for (const { name, content, type } of mailRequest.attachments) {
     email.push(
       `--${boundary}`,
       `Content-Type: ${type}; name="${name}"`,
@@ -46,7 +46,7 @@ async function main(request: Request, environment: Record<string, string>): Prom
 
   const rawEmailCommand = new SendRawEmailCommand({
     RawMessage: { Data: new TextEncoder().encode(email.join('\r\n')) },
-    Source: mail_request.from,
+    Source: mailRequest.from,
   });
 
   const credentials = {
@@ -59,9 +59,9 @@ async function main(request: Request, environment: Record<string, string>): Prom
     credentials: credentials,
   });
 
-  const send_mail = await client.send(rawEmailCommand).catch(console.error);
+  const sendMail = await client.send(rawEmailCommand).catch(console.error);
 
-  return !send_mail
+  return !sendMail
     ? new Response(null, { status: 500, statusText: 'Email could not be sent' })
     : new Response(null, { status: 200, statusText: 'Email sent successfully' });
 }

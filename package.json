@@ -3,7 +3,7 @@
     "lint": "biome check .",
     "dev": "wrangler dev",
     "deploy": "wrangler publish",
-    "verify-email": "bun scripts/verify_email.ts",
+    "verify-email": "bun scripts/verify-email.ts",
     "test": "bun test --watch"
   },
   "dependencies": {
