@@ -1,8 +1,8 @@
 import { SESClient, VerifyEmailIdentityCommand } from '@aws-sdk/client-ses';
-import { get_config } from '@/config';
+import { getConfig } from '@/config';
 
 async function main() {
-  const config = get_config(Bun.env);
+  const config = getConfig(Bun.env);
   const email = prompt('[?] Email: ');
 
   if (!email) {
