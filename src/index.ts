@@ -5,8 +5,7 @@ import { getConfig } from '@/config';
 import { cors } from '@/cors';
 import { getMailRequest } from '@/get-mail-request';
 
-async function main(request: Request, environment: Record<string, string>): Promise<Response> {
-  if (request.method === 'OPTIONS') return new Response(null, { status: 204 });
+async function main(request: Request, environment: Record<string, string>) {
   if (environment['AUTH_TOKEN'] && request.headers.get('Authorization') !== environment['AUTH_TOKEN']) {
     return new Response(null, { status: 401 });
   }
