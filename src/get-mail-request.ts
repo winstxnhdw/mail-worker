@@ -1,11 +1,24 @@
-import type { z } from 'zod';
-import { MailRequestSchema } from '@/schemas';
+import { array, base64, email, object, string } from 'zod';
 
-type MailRequest = z.infer<typeof MailRequestSchema>;
+const AttachmentSchema = object({
+  name: string().default(crypto.randomUUID),
+  content: base64().min(1),
+  type: string().min(1),
+});
 
-export const getMailRequest = async (request: Request): Promise<MailRequest | undefined> => {
+const MailRequestSchema = object({
+  from: email(),
+  to: email().array(),
+  cc: email().array().default([]),
+  bcc: email().array().default([]),
+  subject: string().default(''),
+  html: string().default(''),
+  attachments: array(AttachmentSchema).default([]),
+});
+
+export const getMailRequest = async (request: Request) => {
   const mailRequestPayload = await request.json();
-  const verifiedMailRequest = MailRequestSchema.safeParse(mailRequestPayload as Partial<MailRequest>);
+  const verifiedMailRequest = MailRequestSchema.safeParse(mailRequestPayload);
 
   return verifiedMailRequest.success ? verifiedMailRequest.data : undefined;
 };
