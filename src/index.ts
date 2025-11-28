@@ -1,5 +1,3 @@
-import '@/polyfills';
-
 import { SESv2Client, SendEmailCommand } from '@aws-sdk/client-sesv2';
 import { getConfig } from '@/config';
 import { cors } from '@/cors';
