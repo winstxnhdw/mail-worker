@@ -4,7 +4,7 @@
 [![deploy.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/deploy.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/deploy.yml)
 [![formatter.yml](https://github.com/winstxnhdw/mail-worker/actions/workflows/formatter.yml/badge.svg)](https://github.com/winstxnhdw/mail-worker/actions/workflows/formatter.yml)
 
-`mail-worker` is a robust [Cloudflare Worker](https://workers.cloudflare.com/) built for sending emails with [AWS SES](https://aws.amazon.com/ses/) and [Bun](https://github.com/oven-sh/bun).
+`mail-worker` is a robust [Cloudflare Worker](https://workers.cloudflare.com) built for sending emails with [AWS SES](https://aws.amazon.com/ses/) using [SES API v2](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2).
 
 ## Usage
 
