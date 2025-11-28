@@ -1,6 +1,6 @@
 import '@/polyfills';
 
-import { SESClient, SendRawEmailCommand } from '@aws-sdk/client-ses';
+import { SESv2Client, SendEmailCommand } from '@aws-sdk/client-sesv2';
 import { getConfig } from '@/config';
 import { cors } from '@/cors';
 import { getMailRequest } from '@/get-mail-request';
@@ -43,9 +43,8 @@ async function main(request: Request, environment: Record<string, string>) {
 
   email.push(`--${boundary}--`);
 
-  const rawEmailCommand = new SendRawEmailCommand({
-    RawMessage: { Data: new TextEncoder().encode(email.join('\r\n')) },
-    Source: mailRequest.from,
+  const rawEmailCommand = new SendEmailCommand({
+    Content: { Raw: { Data: new TextEncoder().encode(email.join('\r\n')) } },
   });
 
   const credentials = {
@@ -53,7 +52,7 @@ async function main(request: Request, environment: Record<string, string>) {
     secretAccessKey: config.AWS_SECRET_ACCESS_KEY,
   };
 
-  const client = new SESClient({
+  const client = new SESv2Client({
     region: config.AWS_REGION,
     credentials: credentials,
   });
