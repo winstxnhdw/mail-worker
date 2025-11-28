@@ -1,4 +1,4 @@
-import { SESClient, VerifyEmailIdentityCommand } from '@aws-sdk/client-ses';
+import { SESv2Client, SendCustomVerificationEmailCommand } from '@aws-sdk/client-sesv2';
 import { getConfig } from '@/config';
 
 async function main() {
@@ -14,12 +14,14 @@ async function main() {
     secretAccessKey: config.AWS_SECRET_ACCESS_KEY,
   };
 
-  const client = new SESClient({
+  const client = new SESv2Client({
     region: config.AWS_REGION,
     credentials: credentials,
   });
 
-  await client.send(new VerifyEmailIdentityCommand({ EmailAddress: email })).then(console.log);
+  await client
+    .send(new SendCustomVerificationEmailCommand({ EmailAddress: email, TemplateName: email }))
+    .then(console.log);
 }
 
 void main();
