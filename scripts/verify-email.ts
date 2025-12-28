@@ -21,7 +21,8 @@ async function main() {
 
   await client
     .send(new SendCustomVerificationEmailCommand({ EmailAddress: email, TemplateName: email }))
-    .then(console.log);
+    .then(console.log)
+    .catch(console.error);
 }
 
 void main();
