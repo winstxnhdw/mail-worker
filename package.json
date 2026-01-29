@@ -12,7 +12,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@aws-sdk/types": "3.973.0",
+    "@aws-sdk/types": "3.973.1",
     "@biomejs/biome": "2.3.13",
     "@cloudflare/workers-types": "latest",
     "@types/bun": "latest",
