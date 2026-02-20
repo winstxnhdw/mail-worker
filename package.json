@@ -16,7 +16,7 @@
     "@biomejs/biome": "2.4.2",
     "@cloudflare/workers-types": "latest",
     "@types/bun": "latest",
-    "wrangler": "4.65.0"
+    "wrangler": "4.66.0"
   },
   "peerDependencies": {
     "typescript": "latest"
