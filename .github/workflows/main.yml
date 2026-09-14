@@ -14,7 +14,7 @@ on:
 
 jobs:
   test:
-    uses: winstxnhdw/actions/.github/workflows/bun.yml@f43de6b5804c7609cb6f13864e2d18a70301469e # main
+    uses: winstxnhdw/actions/.github/workflows/bun.yml@0832d473774c1447617374fce8cf68e75c50dd7f # main
     with:
       disable-formatter: true
       disable-test: true
