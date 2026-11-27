@@ -7,7 +7,7 @@
     "test": "bun test --watch"
   },
   "dependencies": {
-    "@aws-sdk/client-sesv2": "^3.1175.0",
+    "@aws-sdk/client-sesv2": "^3.1176.0",
     "tslib": "^2.9.1",
     "zod": "^4.6.7"
   },
@@ -16,7 +16,7 @@
     "@biomejs/biome": "2.6.8",
     "@cloudflare/workers-types": "latest",
     "@types/bun": "latest",
-    "wrangler": "4.166.0"
+    "wrangler": "4.167.0"
   },
   "peerDependencies": {
     "typescript": "latest"
